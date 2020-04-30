@@ -5,4 +5,11 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Number29\Number29.csproj" />
+    <ProjectReference Include="..\Number30\Number30.csproj" />
+    <ProjectReference Include="..\QueueExample\QueueExample.csproj" />
+    <ProjectReference Include="..\StackExample\StackExample.csproj" />
+  </ItemGroup>
+
 </Project>
