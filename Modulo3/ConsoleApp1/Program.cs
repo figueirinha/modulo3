@@ -44,7 +44,13 @@ namespace ConsoleApp1
             Number30Solution.FifthExercise();
             Number30Solution.SixthExercise();
             Number30Solution.SeventhExercise();
+            Number30Solution.EighthExercise();
+            Number30Solution.NinthExercise();
+            Number30Solution.TenthExercise(); //NOT DONE!!!!!!!!!! (Matrices determinants)
+            Number30Solution.EleventhExercise(); //Only Done for 2 matrices with same dimensions (n x n)
+            Number30Solution.TwelfthExercise(); //Only for (n x n)
             */
+
 
 
             //Stack Example

@@ -344,14 +344,148 @@ namespace Recodme.Training.Exercises.Number30
         #region Exercise8
         public static void EighthExercise()
         {
+            int[][] matrix = new int[2][];
+            matrix[0] = new int[2] ;
+            matrix[1] = new int[2];
 
+            var random = new Random();
+            var minimumZeros = matrix[0].Length * (matrix[0].Length - 1) / 2; //For n x n
+            var count = 0;
+            var isTriangularUpper = false;
+            var isTriangularLower = false;
+            var hasDiagnollyOnes = false;
+
+            for (int i = 0; i < matrix[0].Length; i++)
+            {
+                for (int j = 0; j < matrix[1].Length; j++) matrix[i][j] = random.Next(0, 2);
+            }
+
+            for (int i = 0; i < matrix[0].Length; i++)
+            {
+                for (int j = 0; j < matrix[1].Length; j++)
+                {
+                    if (i < j)
+                    {
+                        if (matrix[i][j] == 0)
+                        {
+                            count++;
+                        }
+                    }
+                }
+            }
+
+            if (count == minimumZeros && count != 0) isTriangularUpper = true;
+           
+            count = 0;
+
+            for (int i = 0; i < matrix[0].Length; i++)
+            {
+                for (int j = 0; j < matrix[1].Length; j++)
+                {
+                    if (i > j)
+                    {
+                        if (matrix[i][j] == 0)
+                        {
+                            count++;
+                        }
+                    }
+                }
+            }
+
+            if (count == minimumZeros && count != 0) isTriangularLower = true;
+
+            count = 0;
+
+            for (int i = 0; i < matrix[0].Length; i++)
+            {
+                for (int j = 0; j < matrix[1].Length; j++)
+                {
+                    if (i == j)
+                    {
+                        if (matrix[i][j] == 1)
+                        {
+                            count++;
+                        }
+                    }
+                }
+            }
+
+            if (count == matrix.Length) hasDiagnollyOnes = true;
+
+            if (hasDiagnollyOnes && isTriangularLower && isTriangularUpper) Console.WriteLine("This matrix sure is identity!");
+            else Console.WriteLine("There's no way this matrix is identity.");
         }
+    
         #endregion 
 
         #region Exercise9
         public static void NinthExercise()
         {
+            int[][] matrix = new int[2][];
+            matrix[0] = new int[2] { 5, 0 }; // [1 2]  test here changing the values
+            matrix[1] = new int[2] { 0, 5 }; // [3 4]
 
+            var minimumZeros = matrix[0].Length * (matrix[0].Length - 1) / 2; //For n x n
+            var count = 0;
+            var isTriangularUpper = false;
+            var isTriangularLower = false;
+            var hasDiagnollySameNum = false;
+            var helpCheckDiagnollyNums = matrix[0][0];
+                       
+            for (int i = 0; i < matrix[0].Length; i++)
+            {
+                for (int j = 0; j < matrix[1].Length; j++)
+                {
+                    if (i < j)
+                    {
+                        if (matrix[i][j] == 0)
+                        {
+                            count++;
+                        }
+                    }
+                }
+            }
+
+            if (count == minimumZeros && count != 0) isTriangularUpper = true;
+
+            count = 0;
+
+            for (int i = 0; i < matrix[0].Length; i++)
+            {
+                for (int j = 0; j < matrix[1].Length; j++)
+                {
+                    if (i > j)
+                    {
+                        if (matrix[i][j] == 0)
+                        {
+                            count++;
+                        }
+                    }
+                }
+            }
+
+            if (count == minimumZeros && count != 0) isTriangularLower = true;
+
+            count = 0;
+
+            for (int i = 0; i < matrix[0].Length; i++)
+            {
+                for (int j = 0; j < matrix[1].Length; j++)
+                {
+                    if (i == j)
+                    {
+                        if (matrix[i][j] == helpCheckDiagnollyNums)
+                        {
+                            count++;
+                        }
+                    }
+                }
+            }
+
+            if (count == matrix.Length) hasDiagnollySameNum = true;
+
+            if (hasDiagnollySameNum && isTriangularLower && isTriangularUpper) Console.WriteLine("This matrix sure is scalar!");
+            else Console.WriteLine("There's no way this matrix is scalar.");
         }
         #endregion 
 
@@ -365,14 +499,69 @@ namespace Recodme.Training.Exercises.Number30
         #region Exercise11
         public static void EleventhExercise()
         {
+            int[][] matrixOne = new int[2][];
+            matrixOne[0] = new int[2];
+            matrixOne[1] = new int[2];
 
+            int[][] matrixTwo = new int[2][];
+            matrixTwo[0] = new int[2];
+            matrixTwo[1] = new int[2];
+          
+            int[][] result = new int[matrixOne[0].Length][];
+            result[0] = new int[matrixTwo[1].Length];
+            result[1] = new int[matrixTwo[1].Length];
+
+            var random = new Random();         
+            
+            for (int i = 0; i < matrixOne[0].Length; i++)
+            {
+                for (int j = 0; j < matrixOne[1].Length; j++) matrixOne[i][j] = random.Next(0, 11);
+            }
+
+            for (int i = 0; i < matrixTwo[0].Length; i++)
+            {
+                for (int j = 0; j < matrixTwo[1].Length; j++) matrixTwo[i][j] = random.Next(0, 11);
+            }
+
+            for (int i = 0; i < matrixOne[0].Length; i++)
+            {
+                for (int j = 0; j < matrixTwo[1].Length; j++)
+                {
+                    result[i][j] = 0;
+                    for (int k = 0; k < matrixOne[1].Length; k++)
+                    {
+                        result[i][j] += matrixOne[i][k] * matrixTwo[k][j];
+                    }
+                }
+            }
         }
         #endregion 
 
         #region Exercise12
         public static void TwelfthExercise()
         {
+            int[][] matrix = new int[2][];
+            matrix[0] = new int[2];
+            matrix[1] = new int[2];
 
+            int[][] resultMatrix = new int[2][];
+            resultMatrix[0] = new int[2];
+            resultMatrix[1] = new int[2];
+
+            var random = new Random();
+
+            for (int i = 0; i < matrix[0].Length; i++)
+            {
+                for (int j = 0; j < matrix[1].Length; j++) matrix[i][j] = random.Next(0, 11);
+            }
+
+            for (int i = 0; i < matrix.Length; i++)
+            {
+                for (int j = 0; j < matrix.Length; j++)
+                {
+                    resultMatrix[i][j] = matrix[j][i];
+                }
+            }
         }
         #endregion 
     }
